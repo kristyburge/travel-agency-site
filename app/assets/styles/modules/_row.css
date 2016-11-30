@@ -2,8 +2,16 @@
 
   @mixin clearfix;
 
+  &--t-padding {
+    padding-top: 5rem;
+  }
+
   &--gutters {
     margin-right: -65px; /* counteract the padding on the final column of the row by applying negative margin to the parent */
+  }
+
+  &--gutters-small {
+    margin-right: -45px;
   }
 
   &--gutters-large {
@@ -13,6 +21,10 @@
   /* select all the children of gutters class */
   &--gutters > div {
     padding-right: 65px;
+  }
+
+  &--gutters-small > div {
+    padding-right: 45px;
   }
 
   &--gutters-large > div {
@@ -54,6 +66,61 @@
 
   }
 
+  @mixin atLarge {
+
+    &__b-margin-until-large {
+      margin-bottom: 0;
+    }
+
+    &__large-4 {
+      float: left;
+      width: 33.33%;
+    }
+
+    &__large-4--larger {
+      width: 37%;
+    }
+
+    &__large-6 {
+      float: left;
+      width: 50%;
+    }
+
+    &__large-8 {
+      float: left;
+      width: 66.67%;
+    }
+
+    &__large-8--smaller {
+      width: 63%;
+    }
+
+  }
+
+  /* Begin Equal Height Rules */
+  &--equal-height-at-medium {
+    @mixin atMedium {
+      display: flex;
+    }
+
+    /* Just the ampersand selects the selector above and then select only direct descendants that are divs */
+    & > div {
+      float: none;
+      display: flex;
+    }
+  }
+
+  &--equal-height-at-large {
+    @mixin atLarge {
+      display: flex;
+    }
+
+    /* Just the ampersand selects the selector above and then select only direct descendants that are divs */
+    & > div {
+      float: none;
+      display: flex;
+    }
+  }
 
 
 }
