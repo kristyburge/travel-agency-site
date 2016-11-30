@@ -1,0 +1,44 @@
+.testimonial {
+
+  background-color: rgba(255,255,255,0.8);
+  padding: 0 1.125rem 1px;
+  margin-bottom: 6.125rem;
+
+  @mixin atLarge {
+    padding: 0 1.8125rem 1px;
+    margin-bottom: 0;
+  }
+
+  &--last {
+    margin-bottom: 0;
+  }
+
+  &__photo {
+    border-radius: 80px; /*half of the total image will create a circle*/
+    /* since image is inside containing div, must set overflow to hidden and the exact height/width as the photo inside*/
+    border: 6px solid rgba(255,255,255,0.8);
+    overflow: hidden;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto -80px auto;
+    position: relative; /*make the top half ot the image move up*/
+    top: -80px;
+  }
+
+  &__title {
+    color: $mainBlue;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  &__subtitle {
+    color: $mainOrange;
+    text-align: center;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    margin: 0.25rem 0 1rem 0;
+  }
+
+}
