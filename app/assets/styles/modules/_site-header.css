@@ -15,4 +15,8 @@
     background-color: $mainBlue;
     padding: 1.5625rem 2.25rem;
   }
+
+  &__logo__graphic {
+    text-indent: -9999px;
+  }
 }

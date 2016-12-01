@@ -496,6 +496,7 @@ a {
   left: 0;
   width: 100%;
   text-align: center;
+  padding-top: 3.75rem;
 }
 
 .large-hero__title {
@@ -1149,6 +1150,10 @@ a {
   top: 0;/* counteracts the padding of the .site-header element */
   background-color: #2f5572;
   padding: 1.5625rem 2.25rem;
+}
+
+.site-header__logo__graphic {
+  text-indent: -9999px;
 }
 
 .primary-nav--pull-right {
