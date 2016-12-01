@@ -496,7 +496,14 @@ a {
   left: 0;
   width: 100%;
   text-align: center;
-  padding-top: 3.75rem;
+  padding-top: 5.5rem;
+}
+
+@media (min-width: 800px) {
+
+  .large-hero__text-content {
+    padding-top: 3.75rem;
+  }
 }
 
 .large-hero__title {
@@ -1136,9 +1143,16 @@ a {
 .site-header {
   position: absolute;
   z-index: 2;
-  background-color: rgba(47,85,114,0.3);
   width: 100%;
   padding: 10px 0;
+
+}
+
+@media (min-width: 800px) {
+
+  .site-header {
+    background-color: rgba(47,85,114,0.3);
+  }
 }
 
 .site-header__btn-container {
@@ -1148,12 +1162,55 @@ a {
 .site-header__logo {
   position: absolute;/* takes logo out of the natural flow of the page */
   top: 0;/* counteracts the padding of the .site-header element */
+  left: 50%;
+  -webkit-transform: translateX(-50%) scale(.8);
+          transform: translateX(-50%) scale(.8);/* horizonally center on small screens by adding left 50% and pulling it back to the left by half of it's own width using translateX AND scale changes the size of the sprite*/
+  -webkit-transform-origin: 50% 0;
+          transform-origin: 50% 0;/* horizontal then vertical */
   background-color: #2f5572;
   padding: 1.5625rem 2.25rem;
 }
 
+@media (min-width: 800px) {
+
+  .site-header__logo {/*undo horizontal center of logo for larger screens */
+    left: auto;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
 .site-header__logo__graphic {
   text-indent: -9999px;
+}
+
+.site-header__menu-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+@media (min-width: 800px) {
+
+  .site-header__menu-icon {
+    display: none;
+  }
+}
+
+.site-header__menu-content {
+  display: none;
+}
+
+/* hidden by default */
+
+@media (min-width: 800px) {
+
+  .site-header__menu-content {
+    display: block;
+  }
 }
 
 .primary-nav--pull-right {

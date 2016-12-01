@@ -1,9 +1,12 @@
 .site-header {
   position: absolute;
   z-index: 2;
-  background-color: rgba($mainBlue,0.3);
   width: 100%;
   padding: 10px 0;
+
+  @mixin atMedium {
+    background-color: rgba($mainBlue,0.3);
+  }
 
   &__btn-container {
     float:right;
@@ -12,11 +15,42 @@
   &__logo {
     position: absolute; /* takes logo out of the natural flow of the page */
     top: 0; /* counteracts the padding of the .site-header element */
+    left: 50%;
+    transform: translateX(-50%) scale(.8); /* horizonally center on small screens by adding left 50% and pulling it back to the left by half of it's own width using translateX AND scale changes the size of the sprite*/
+    transform-origin: 50% 0; /* horizontal then vertical */
     background-color: $mainBlue;
     padding: 1.5625rem 2.25rem;
+
+    @mixin atMedium {
+      /*undo horizontal center of logo for larger screens */
+      left: auto;
+      transform: translateX(0);
+    }
   }
 
   &__logo__graphic {
     text-indent: -9999px;
   }
+
+  &__menu-icon {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    @mixin atMedium {
+      display: none;
+    }
+  }
+
+  &__menu-content {
+    display: none; /* hidden by default */
+
+    @mixin atMedium {
+      display:block;
+    }
+  }
+
 }
