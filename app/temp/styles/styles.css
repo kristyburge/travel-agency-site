@@ -1159,6 +1159,11 @@ a {
 
   .site-header {
     background-color: rgba(47,85,114,0.3);
+    position: fixed;
+  }
+
+  .site-header--dark {
+    background-color: rgba(23,51,72,.85);
   }
 }
 
@@ -1179,6 +1184,10 @@ a {
           transform-origin: 50% 0;/* horizontal then vertical */
   background-color: #2f5572;
   padding: 1.5625rem 2.25rem;
+  -webkit-transition: -webkit-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
 }
 
 @media (min-width: 800px) {
@@ -1187,6 +1196,11 @@ a {
     left: auto;
     -webkit-transform: translateX(0);
             transform: translateX(0);
+  }
+
+  .site-header--dark .site-header__logo {/* target decendant selector of the __logo only when --dark is being used */
+    -webkit-transform: scale(.56);
+            transform: scale(.56);
   }
 }
 
@@ -1373,6 +1387,10 @@ a {
     font-size: 1rem;
     padding: 0.75rem 0;
     background-color: transparent;
+  }
+
+  .primary-nav a.is-current-link {
+    color: #fabb69;
   }
 }
 
