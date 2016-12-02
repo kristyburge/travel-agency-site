@@ -46,54 +46,17 @@
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _MobileMenu = __webpack_require__(1);
 
-	var _Person2 = __webpack_require__(1);
-
-	var _Person3 = _interopRequireDefault(_Person2);
+	var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var $ = __webpack_require__(2);
-	//var Person = require('./modules/Person');
-
-	var Adult = function (_Person) {
-	  _inherits(Adult, _Person);
-
-	  function Adult() {
-	    _classCallCheck(this, Adult);
-
-	    return _possibleConstructorReturn(this, (Adult.__proto__ || Object.getPrototypeOf(Adult)).apply(this, arguments));
-	  }
-
-	  _createClass(Adult, [{
-	    key: 'payTaxes',
-	    value: function payTaxes() {
-	      console.log(this.name + " now owes $0 in taxes.");
-	    }
-	  }]);
-
-	  return Adult;
-	}(_Person3.default);
-
-	var john = new _Person3.default("John Doe", "blue");
-	john.greet();
-
-	var jane = new Adult("Jane Smith", "yellow");
-	jane.greet();
-	jane.payTaxes();
-
-	$("h1").remove();
+	var mobileMenu = new _MobileMenu2.default();
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -103,30 +66,48 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var Person = function () {
-	  function Person(fullName, favColor) {
-	    _classCallCheck(this, Person);
+	var MobileMenu = function () {
+	  // forks
+	  function MobileMenu() {
+	    _classCallCheck(this, MobileMenu);
 
-	    this.name = fullName;
-	    this.favColor = favColor;
+	    this.menuIcon = (0, _jquery2.default)(".site-header__menu-icon");
+	    this.menuContent = (0, _jquery2.default)(".site-header__menu-content");
+
+	    this.events(); // call the events method
 	  }
 
-	  _createClass(Person, [{
-	    key: "greet",
-	    value: function greet() {
-	      console.log("Hey there, my name is " + this.name + " and my favorite color ever is " + this.favColor + ".");
+	  //must manaully call this method! It's not native/expected.
+	  // spoons
+
+
+	  _createClass(MobileMenu, [{
+	    key: "events",
+	    value: function events() {
+	      this.menuIcon.click(this.toggleTheMenu.bind(this));
+	    }
+
+	    // knives
+
+	  }, {
+	    key: "toggleTheMenu",
+	    value: function toggleTheMenu() {
+	      this.menuContent.toggleClass("site-header__menu-content--is-visible");
 	    }
 	  }]);
 
-	  return Person;
+	  return MobileMenu;
 	}();
 
-	// module.exports = Person;
-
-
-	exports.default = Person;
+	exports.default = MobileMenu;
 
 /***/ },
 /* 2 */

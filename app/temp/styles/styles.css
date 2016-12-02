@@ -1146,6 +1146,7 @@ a {
   width: 100%;
   padding: 10px 0;
 
+
 }
 
 @media (min-width: 800px) {
@@ -1211,6 +1212,10 @@ a {
   .site-header__menu-content {
     display: block;
   }
+}
+
+.site-header__menu-content--is-visible {
+  display: block;
 }
 
 .primary-nav--pull-right {
