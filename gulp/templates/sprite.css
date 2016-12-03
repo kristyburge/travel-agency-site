@@ -12,6 +12,10 @@
     /* Use 3 curly brace sets because the sprite variable needs to go into the svg folder and you don't want the "/" to be escaped!!! */
     background-image: url('/assets/images/sprites/{{{sprite}}}');
   }
+
+    .no-svg .icon {
+      background-image: url('/assets/images/sprites/{{#replaceSvgWithPng}}{{{sprite}}}{{/replaceSvgWithPng}}');
+    }
   {{/first}}
 
   .icon--{{base}} {
