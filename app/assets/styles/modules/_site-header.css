@@ -35,7 +35,7 @@
     transform-origin: 50% 0; /* horizontal then vertical */
     background-color: $mainBlue;
     padding: 1.5625rem 2.25rem;
-    transition: transform .3s ease-out; 
+    transition: transform .3s ease-out;
 
     @mixin atMedium {
       /*undo horizontal center of logo for larger screens */
@@ -43,7 +43,7 @@
       transform: translateX(0);
 
       .site-header--dark & {/* target decendant selector of the __logo only when --dark is being used */
-        transform: scale(.56);
+        transform: scale(.55);
       }
 
     }

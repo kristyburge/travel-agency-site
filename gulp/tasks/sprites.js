@@ -5,6 +5,11 @@ var gulp = require('gulp'),
     svg2png = require('gulp-svg2png');
 
 var config = { // Config for the package svgSprite must be an object literal
+  shape: {
+    spacing: {
+      padding: 1
+    }
+  },
   mode: {
     css: {
       variables: {
